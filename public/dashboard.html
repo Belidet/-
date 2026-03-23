@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>የአመክሮ ቤተሰብ አባላት መከታተያ - ዳሽቦርድ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="cross-icon">✝</div>
+                <h3>አመክሮ ቤተሰብ</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-btn active" data-view="tasks">
+                    <span>📖</span> <span>የዕለት ተግባራት</span>
+                </button>
+                <button class="nav-btn" data-view="calendar">
+                    <span>📅</span> <span>የጉባኤ መርሃ ግብር</span>
+                </button>
+                <button class="nav-btn" data-view="users" id="usersNavBtn" style="display:none;">
+                    <span>👥</span> <span>ተጠቃሚዎች</span>
+                </button>
+                <button class="nav-btn" data-view="report" id="reportNavBtn" style="display:none;">
+                    <span>📊</span> <span>ሪፖርት</span>
+                </button>
+            </nav>
+            <div class="user-info">
+                <div id="userNameDisplay"></div>
+                <button id="logoutBtn" class="logout-btn">ውጣ</button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1 id="pageTitle">የዕለት ተግባራት</h1>
+                <div class="date-display" id="currentDate"></div>
+            </header>
+            
+            <div id="contentArea" class="content-area">
+                <!-- Dynamic content loads here -->
+                <div class="loading">በመጫን ላይ...</div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- User Management Modal -->
+    <div id="userModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>አዲስ ተጠቃሚ ይፍጠሩ</h3>
+            <form id="createUserForm">
+                <input type="text" id="userName" placeholder="ሙሉ ስም" required>
+                <input type="text" id="userUsername" placeholder="የተጠቃሚ ስም" required>
+                <input type="password" id="userPassword" placeholder="የይለፍ ቃል" required>
+                <select id="userRole">
+                    <option value="standard">መደበኛ ተጠቃሚ</option>
+                    <option value="admin">አስተዳዳሪ</option>
+                </select>
+                <div id="adminAuthOptions" style="display:none;">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="fullAuthority"> ሙሉ ስልጣን ይኑረው
+                    </label>
+                </div>
+                <button type="submit">ፍጠር</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
