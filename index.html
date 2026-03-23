@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>አመክሮ - Task Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Orthodox Cross Header -->
+        <div class="orthodox-header">
+            <div class="cross-container">
+                <svg class="orthodox-cross" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="45" y="15" width="10" height="70" fill="#C9A87C" />
+                    <rect x="25" y="35" width="50" height="10" fill="#C9A87C" />
+                    <rect x="55" y="10" width="10" height="25" fill="#C9A87C" />
+                    <rect x="35" y="10" width="10" height="25" fill="#C9A87C" />
+                    <rect x="45" y="75" width="10" height="20" fill="#C9A87C" />
+                    <circle cx="50" cy="85" r="5" fill="#C9A87C" />
+                </svg>
+            </div>
+            <h1 class="app-title">አመክሮ</h1>
+            <p class="app-subtitle">"በእምነት ተገንዙ"</p>
+        </div>
+
+        <!-- Login Section -->
+        <div id="loginSection" class="login-section">
+            <div class="icon-border">
+                <svg class="icon-saint" viewBox="0 0 80 80" fill="none">
+                    <circle cx="40" cy="40" r="35" stroke="#C9A87C" stroke-width="2" fill="none"/>
+                    <path d="M40 20 L40 60 M25 35 L55 35 M30 45 L50 45" stroke="#C9A87C" stroke-width="2"/>
+                    <circle cx="40" cy="30" r="5" stroke="#C9A87C" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            <h2>ግባ / Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>ስም / Username</label>
+                    <input type="text" id="loginUsername" required>
+                </div>
+                <div class="form-group">
+                    <label>የይለፍ ቃል / Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn-primary">ግባ / Login</button>
+            </form>
+            <div id="loginError" class="error-message"></div>
+        </div>
+
+        <!-- Admin Dashboard Section -->
+        <div id="adminSection" class="admin-section" style="display: none;">
+            <div class="dashboard-header">
+                <h2>የአስተዳዳሪ ፓነል / Admin Dashboard</h2>
+                <button id="logoutBtn" class="btn-secondary">ውጣ / Logout</button>
+            </div>
+
+            <!-- Calendar for Meeting Task -->
+            <div class="calendar-section">
+                <h3>የጉባኤ ተሳትፎ ቀን / Meeting Date</h3>
+                <input type="date" id="meetingDatePicker" class="date-picker">
+                <p class="info-text">በዚህ ቀን ብቻ "የጉባኤ ተሳትፎ" ተግባር ይታያል / Task appears only on this date</p>
+            </div>
+
+            <!-- User Management -->
+            <div class="user-management">
+                <h3>ተጠቃሚዎችን ማስተዳደር / User Management</h3>
+                <div class="create-user-form">
+                    <input type="text" id="newUsername" placeholder="Username" class="input-small">
+                    <input type="password" id="newPassword" placeholder="Password" class="input-small">
+                    <select id="newUserRole" class="input-small">
+                        <option value="user">Standard User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <button id="createUserBtn" class="btn-success">+ ፍጠር / Create</button>
+                </div>
+                
+                <div class="users-list">
+                    <table id="usersTable">
+                        <thead>
+                            <tr>
+                                <th>ስም / User</th>
+                                <th>ሚና / Role</th>
+                                <th>ድርጊት / Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Task Completion Tracking -->
+            <div class="tracking-section">
+                <h3>የተጠቃሚዎች ተግባራት / User Tasks Completion</h3>
+                <div id="usersTasksView"></div>
+            </div>
+        </div>
+
+        <!-- User Dashboard Section -->
+        <div id="userSection" class="user-section" style="display: none;">
+            <div class="dashboard-header">
+                <h2>እንኳን ደህና መጡ, <span id="currentUsername"></span></h2>
+                <button id="userLogoutBtn" class="btn-secondary">ውጣ / Logout</button>
+            </div>
+            
+            <div class="tasks-container">
+                <div class="tasks-header">
+                    <h3>የዕለት ተግባራቴ / My Daily Tasks</h3>
+                    <div class="current-date-display" id="currentDateDisplay"></div>
+                </div>
+                <div id="userTasksList" class="tasks-list"></div>
+            </div>
+
+            <!-- User Settings -->
+            <div class="user-settings">
+                <h3>የመለያ ቅንብሮች / Account Settings</h3>
+                <div class="settings-form">
+                    <input type="password" id="changePasswordOld" placeholder="Old Password">
+                    <input type="password" id="changePasswordNew" placeholder="New Password">
+                    <button id="changePasswordBtn" class="btn-warning">ለውጥ / Change</button>
+                    <button id="deleteOwnAccountBtn" class="btn-danger">ሰርዝ / Delete Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
