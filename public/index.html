@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>የአመክሮ ቤተሰብ አባላት መከታተያ - ግባ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+    <div class="orthodox-border"></div>
+    <div class="login-container">
+        <div class="login-header">
+            <div class="cross-icon">✝</div>
+            <h1>የአመክሮ ቤተሰብ</h1>
+            <h2>አባላት መከታተያ</h2>
+            <p>Family Task Tracker</p>
+        </div>
+        
+        <form id="loginForm" class="login-form">
+            <div class="form-group">
+                <label for="username">የተጠቃሚ ስም</label>
+                <input type="text" id="username" name="username" required placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label for="password">የይለፍ ቃል</label>
+                <input type="password" id="password" name="password" required placeholder="Password">
+            </div>
+            <button type="submit" class="login-btn">ይግቡ</button>
+        </form>
+        <div id="loginError" class="error-message"></div>
+        
+        <div class="orthodox-footer">
+            <p>ጸጋ ይብዛልን</p>
+            <p class="demo-credits">First Admin: spiritual_father / admin123</p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
